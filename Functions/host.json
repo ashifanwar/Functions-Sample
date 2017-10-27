@@ -1,0 +1,17 @@
+﻿{
+  "id": "56fae878bb284972a865b06959cc600c",
+  "serviceBus": {
+    "maxConcurrentCalls": 3,
+    "prefetchCount": 100,
+    "autoRenewTimeout": "00:05:00"
+  },
+  "tracing": {
+    "consoleLevel": "info",
+    "fileLoggingMode": "debugOnly"
+  },
+  "queues": {
+    "maxPollingInterval": 2000,
+    "visibilityTimeout": "00:10:00",
+    "maxDequeueCount": 50
+  }
+}

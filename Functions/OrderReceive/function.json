@@ -1,0 +1,32 @@
+﻿{
+  "bindings": [
+    {
+      "name": "orderItem",
+      "type": "serviceBusTrigger",
+      "direction": "in",
+      "queueName": "Orders",
+      "connection": "SBConnectionString",
+      "accessRights": "listen",
+      "methods": [
+        "post"
+      ]
+    },
+    {
+      "type": "table",
+      "name": "outputTable",
+      "tableName": "orders",
+      "connection": "StorageConnectionString",
+      "direction": "out"
+    },
+    {
+      "type": "blob",
+      "name": "outputBlob",
+      "path": "licenses/{rand-guid}.lic",
+      "connection": "StorageConnectionString",
+      "direction": "out"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "..\\bin\\FunctionApps.dll",
+  "entryPoint": "FunctionApps.OrderReceive.OrderReceiveFunction.Run"
+}

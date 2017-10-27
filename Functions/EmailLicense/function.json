@@ -1,0 +1,30 @@
+﻿{
+  "bindings": [
+    {
+      "name": "myBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "licenses/{filename}.lic",
+      "connection": "StorageConnectionString"
+    },
+    {
+      "type": "sendGrid",
+      "name": "message",
+      "apiKey": "SendGrid-API-Key",
+      "direction": "out"
+    },
+    {
+      "type": "table",
+      "name": "ordersRow",
+      "tableName": "orders",
+      "partitionKey": "order",
+      "rowKey": "{filename}",
+      "take": "50",
+      "connection": "StorageConnectionString",
+      "direction": "in"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "..\\bin\\FunctionApps.dll",
+  "entryPoint": "FunctionApps.EmailLicence.EmailLicenseFunction.Run"
+}
